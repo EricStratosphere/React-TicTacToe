@@ -1,5 +1,5 @@
 import '../styles/grid.css'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import Cell from './cell'
 
 const ticTacToe : string[][] = [ 
@@ -11,7 +11,11 @@ const ticTacToe : string[][] = [
 export default function Grid(){
     const [matrix, setMatrix] = useState(ticTacToe);
     const [xTurn, setXTurn] = useState(true);
+    const checkWinner = ()  => void  {
 
+    }
+
+    useEffect(checkWinner,[matrix]);
     return(
         <>
         <h2>
