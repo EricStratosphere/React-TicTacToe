@@ -1,0 +1,41 @@
+
+.outer-grid{
+    height : 700px;
+    width : 700px;
+    background-color: black;
+    margin-top : 50px;
+    border-radius : 50px;
+    border : 2px solid;
+    border-color : white;
+    padding : 20px;
+}
+
+.cell-container{
+    height : 100%;
+    width : auto;
+    border-radius : 50px;
+    background-color: inherit;
+    display:flex;
+    flex-direction: column;
+    gap : 20px;
+
+}
+
+.row{
+    height : 33%;
+    width : 100%;
+    background-color: inherit; 
+    border-radius : 20px;
+    display : flex;
+    flex-direction : row;
+    gap : 20px;
+    
+}
+
+
+.cell{
+    height : 100%;
+    width : 33%;
+    border : 2px solid rgb(114, 114, 114);
+    border-radius : 20px;
+}  
