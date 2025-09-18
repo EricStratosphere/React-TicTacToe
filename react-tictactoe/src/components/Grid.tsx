@@ -12,6 +12,7 @@ export default function Grid(){
     const x : string = "";
     const [textContent, setTextContent] = useState(x);
     const [matrix, setMatrix] = useState(ticTacToe);
+    
     return(
         <div className="outer-grid">
             <div className='cell-container'>
