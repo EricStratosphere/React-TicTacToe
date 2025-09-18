@@ -19,7 +19,7 @@ const Cell = ({ row, column, xTurn, setXTurn, matrix, setMatrix }: CellProps) =>
         setXTurn(!xTurn);
         matrix[row][column] = newCellValue;
         setMatrix(matrix);
-        console.log(matrix);
+        //console.log(matrix);
     }
 
     return (
