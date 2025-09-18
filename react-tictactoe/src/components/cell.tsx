@@ -1,10 +1,12 @@
 import '../styles/grid.css'
 interface CellProps{
+    row : number;
+    column : number;
     textContent : string;
     setTextContent : (text : string) => void;
 }
 
-const Cell = ({textContent, setTextContent} : CellProps) => {
+const Cell = ({row, column, textContent, setTextContent} : CellProps) => {
 
     return(
     <div className="cell" onClick={() => {
