@@ -35,9 +35,22 @@
     width : 33%;
     border : 2px solid rgb(114, 114, 114);
     border-radius : 20px;
+    display : flex;
+    justify-content: center;
+    align-items : center;
 }  
+
+.cell h1{
+    font-size : 80px;
+}
 
 .cell:hover{
     box-shadow : 0 0 10px 5px rgb(193, 193, 193);
     background-color : rgb(114, 114, 114);
+}
+
+h2{
+    font-family :'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color : rgb(204, 204, 204);
+    font-size : 2rem;
 }

@@ -9,12 +9,8 @@ const ticTacToe : string[][] = [
 ]
 
 export default function Grid(){
-
-    const s : boolean = true;
-
     const [matrix, setMatrix] = useState(ticTacToe);
-    
-    const [xTurn, setXTurn] = useState(s);
+    const [xTurn, setXTurn] = useState(true);
 
     return(
         <>
@@ -23,7 +19,7 @@ export default function Grid(){
         </h2>
         <div className="outer-grid">
             <div className='cell-container'>
-                <div className='row 0'>
+                {/* <div className='row 0'>
                     <Cell row = {0} column={0} xTurn={xTurn} setXTurn={setXTurn} matrix={matrix} setMatrix={setMatrix}/>
                     <Cell row = {0} column={1} xTurn={xTurn} setXTurn={setXTurn} matrix={matrix} setMatrix={setMatrix}/>
                     <Cell row = {0} column={2} xTurn={xTurn} setXTurn={setXTurn} matrix={matrix} setMatrix={setMatrix}/>
@@ -37,7 +33,22 @@ export default function Grid(){
                     <Cell row = {2} column={0} xTurn={xTurn} setXTurn={setXTurn} matrix={matrix} setMatrix={setMatrix}/>
                     <Cell row = {2} column={1} xTurn={xTurn} setXTurn={setXTurn} matrix={matrix} setMatrix={setMatrix}/>
                     <Cell row = {2} column={2} xTurn={xTurn} setXTurn={setXTurn} matrix={matrix} setMatrix={setMatrix}/>
+                </div> */}
+            {matrix.map((row, rowIndex) => (
+                <div className={`row ${rowIndex}`} key={rowIndex}>
+                    {row.map((_, colIndex) => (
+                        <Cell
+                            key={`${rowIndex}-${colIndex}`}
+                            row={rowIndex}
+                            column={colIndex}
+                            xTurn={xTurn}
+                            setXTurn={setXTurn}
+                            matrix={matrix}
+                            setMatrix={setMatrix}
+                        />
+                    ))}
                 </div>
+            ))}
             </div>
         </div>
         </>
