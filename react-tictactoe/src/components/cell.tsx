@@ -1,21 +1,38 @@
 import '../styles/grid.css'
-interface CellProps{
-    row : number;
-    column : number;
-    textContent : string;
-    setTextContent : (text : string) => void;
+// import { useState } from 'react';
+
+export interface CellProps {
+    row: number;
+    column: number;
+    matrix: string[][];
+    xTurn: boolean;
+    setXTurn: (xTurn: boolean) => void;
+    setMatrix: (matrix: string[][]) => void;
 }
 
-const Cell = ({row, column, textContent, setTextContent} : CellProps) => {
+const Cell = ({ row, column, xTurn, setXTurn, matrix, setMatrix }: CellProps) => {
 
-    return(
-    <div className="cell" onClick={() => {
-        setTextContent(textContent)
+    const updateContext = () => {
+        const newCellValue = xTurn ? "X" : "O";
+        setXTurn(!xTurn);
+        matrix[row][column] = newCellValue;
+        setMatrix(matrix);
+        //console.log(matrix);
     }
-    }>
-        {textContent}
-    </div>
+
+    return (
+        <div className="cell" onClick={() => {
+            if (matrix[row][column]) {
+                alert("This cell is already taken!");
+                return;
+            } else {
+                updateContext();
+            }
+        }}>
+            <h1>
+                {matrix[row][column]}
+            </h1>
+        </div>
     )
 }
-export type {CellProps}
 export default Cell
