@@ -14,3 +14,10 @@ h1{
   color : rgb(180, 180, 180);
   text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #d1d1d1;
 }
+
+
+@media screen and (max-width : 800px){
+    h1{
+      text-align : center;
+    }
+}

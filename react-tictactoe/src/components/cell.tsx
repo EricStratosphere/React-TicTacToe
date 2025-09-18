@@ -1,5 +1,5 @@
 import '../styles/grid.css'
-import { useState } from 'react';
+// import { useState } from 'react';
 
 export interface CellProps {
     row: number;
@@ -11,11 +11,9 @@ export interface CellProps {
 }
 
 const Cell = ({ row, column, xTurn, setXTurn, matrix, setMatrix }: CellProps) => {
-    const [cellValue, setcellValue] = useState('');
 
     const updateContext = () => {
         const newCellValue = xTurn ? "X" : "O";
-        setcellValue(newCellValue);
         setXTurn(!xTurn);
         matrix[row][column] = newCellValue;
         setMatrix(matrix);
@@ -23,8 +21,8 @@ const Cell = ({ row, column, xTurn, setXTurn, matrix, setMatrix }: CellProps) =>
     }
 
     return (
-        <button className="cell" onClick={() => {
-            if (cellValue) {
+        <div className="cell" onClick={() => {
+            if (matrix[row][column]) {
                 alert("This cell is already taken!");
                 return;
             } else {
@@ -32,9 +30,9 @@ const Cell = ({ row, column, xTurn, setXTurn, matrix, setMatrix }: CellProps) =>
             }
         }}>
             <h1>
-                {cellValue}
+                {matrix[row][column]}
             </h1>
-        </button>
+        </div>
     )
 }
 export default Cell

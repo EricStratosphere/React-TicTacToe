@@ -15,10 +15,22 @@ export default function Grid(){
     const [xTurn, setXTurn] = useState(true);
     // const [tuple, setTuple] = useState(Tuple);
     const [gameIsWon, setGameIsWon] = useState(false);
+    const [countTile, setCountTile] = useState(0);
 
+    const resetGame = () : void => {
+        setCountTile(0);
+        setXTurn(true);
+        setGameIsWon(false);
+        setMatrix([
+            ["", "", ""],
+            ["", "", ""],
+            ["", "", ""]
+        ]);
+    }
     const checkWinner = () : void =>  {
         //check rows
         let winnerFlag = true;
+        setCountTile(countTile + 1);
         const referenceCharacter : string = xTurn ? "O" : "X"
         for(let i = 0; i < 3; i++){
             winnerFlag = true
@@ -93,9 +105,13 @@ export default function Grid(){
         <h2>
             {gameIsWon ? (xTurn ? "O is the winner!" : "X is the winner!")
             : 
-            (xTurn ? "It is X's Turn" : "It is O's Turn")
+            (countTile === 10  ? "Game is a tie!" : (xTurn ? "It is X's Turn" : "It is O's Turn"))
             }
         </h2>
+
+        {(gameIsWon || countTile === 10) ? 
+        <button onClick={resetGame}>Reset game</button> : null
+    }
 
         <div className="outer-grid">
             <div className='cell-container'>

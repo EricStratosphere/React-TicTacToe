@@ -60,3 +60,24 @@ h2{
     margin-top : 10px;
     margin-bottom : 10px;
 }
+
+button{
+    padding : 20px;
+    margin-bottom : 10px;
+    background-color: rgb(104, 104, 104);
+    border-radius : 20px;
+    color : white;
+}
+
+@media screen and (max-width : 800px){
+    .outer-grid{
+    height : 400px;
+    width : 400px;
+    background-color: black;
+    background-image : none;
+    border-radius : 50px;
+    border : 2px solid;
+    border-color : white;
+    padding : 20px;
+}
+}
